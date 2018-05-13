@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Main {
 
-
     private static int[][] mArray;
     private static int mRow;
     private static int mColumn;
@@ -12,7 +11,6 @@ public class Main {
     private static int mMinColumnArray[][];
 
     public static void main(String[] args) {
-
         /*
         ввод строк и столбцов
          */
@@ -23,8 +21,8 @@ public class Main {
          */
         mRow = sc.nextInt();
 
-
         /*
+
         кол-во столбцов
          */
         mColumn = sc.nextInt();
@@ -39,11 +37,20 @@ public class Main {
                 mArray[i][j] = sc.nextInt();
             }
         }
-
+        /*
+        массив в расположением минимальных чисел в стоках
+         */
         MinRow();
-        MinColumn();
-        CountMin();
 
+         /*
+        массив в расположением минимальных чисел в столбцах
+         */
+        MinColumn();
+
+         /*
+        количество элементов в матрице
+         */
+        CountMin();
     }
 
     private static void MinRow() {
@@ -66,14 +73,12 @@ public class Main {
                 }
             }
         }
-        System.out.println(Arrays.deepToString(mMinRowArray));
-
     }
 
 
     private static void MinColumn() {
 
-        int mMinColumn = 0;
+        int mMinColumn;
         mMinColumnArray = new int[Main.mRow][mColumn];
         for (int min = 0; min < mColumn; min++) {
             mMinColumn = mArray[0][min];
@@ -89,8 +94,6 @@ public class Main {
                 }
             }
         }
-
-        System.out.println(Arrays.deepToString(mMinColumnArray));
     }
 
     private static void CountMin() {
@@ -102,6 +105,6 @@ public class Main {
             }
 
         }
-        System.out.println("count " + mCountMin);
+        System.out.println(mCountMin);
     }
 }
