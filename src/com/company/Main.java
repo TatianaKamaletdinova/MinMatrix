@@ -52,7 +52,10 @@ public class Main {
          */
         CountMin();
     }
-
+    
+    /*
+           массив в расположением минимальных чисел в стоках
+            */
     private static void MinRow() {
 
         int mMinRow = 0;
@@ -76,6 +79,9 @@ public class Main {
     }
 
 
+    /*
+        массив в расположением минимальных чисел в столбцах
+         */
     private static void MinColumn() {
 
         int mMinColumn;
@@ -96,6 +102,9 @@ public class Main {
         }
     }
 
+    /*
+       количество элементов в матрице
+        */
     private static void CountMin() {
 
         int mCountMin = 0;
