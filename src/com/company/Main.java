@@ -1,5 +1,4 @@
 package com.company;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -9,6 +8,7 @@ public class Main {
     private static int mColumn;
     private static int mMinRowArray[][];
     private static int mMinColumnArray[][];
+    private static int mMin;
 
     public static void main(String[] args) {
         /*
@@ -46,33 +46,32 @@ public class Main {
         массив в расположением минимальных чисел в столбцах
          */
         MinColumn();
+        mArray = null;
 
          /*
         количество элементов в матрице
          */
         CountMin();
     }
-    
+
     /*
            массив в расположением минимальных чисел в стоках
             */
     private static void MinRow() {
 
-        int mMinRow = 0;
-        mMinRowArray = new int [Main.mRow][mColumn];
-        for (int i = 0; i < Main.mRow; i++) {
-            for (int min = 0; min < Main.mRow; min++) {
-                mMinRow = mArray[min][0];
-                for (int j = 0; j < mColumn; j++) {
-                    if (mMinRow >= mArray[i][j]) {
-                        mMinRow = mArray[i][j];
-                    }
+        mMinRowArray = new int [mRow][mColumn];
+        for (int min = 0; min < mRow; min++) {
+            mMin = mArray[min][0];
+            for (int j = 0; j < mColumn; j++) {
+                if (mMin >= mArray[min][j]) {
+                    mMin = mArray[min][j];
                 }
             }
+
             for (int j = 0; j < mColumn; j++) {
-                if (mMinRow >= mArray[i][j]) {
-                    mMinRow = mArray[i][j];
-                    mMinRowArray[i][j] = 1;
+                if (mMin >= mArray[min][j]) {
+                    mMin = mArray[min][j];
+                    mMinRowArray[min][j] = 1;
                 }
             }
         }
@@ -84,22 +83,23 @@ public class Main {
          */
     private static void MinColumn() {
 
-        int mMinColumn;
-        mMinColumnArray = new int[Main.mRow][mColumn];
+        mMinColumnArray = new int[mRow][mColumn];
+
         for (int min = 0; min < mColumn; min++) {
-            mMinColumn = mArray[0][min];
+            mMin = mArray[0][min];
             for (int j = 0; j < Main.mRow; j++) {
-                if (mMinColumn >= mArray[j][min]) {
-                    mMinColumn = mArray[j][min];
+                if (mMin >= mArray[j][min]) {
+                    mMin = mArray[j][min];
                 }
             }
-            for (int j = 0; j < Main.mRow; j++) {
-                if (mMinColumn >= mArray[j][min]) {
-                    mMinColumn = mArray[j][min];
+            for (int j = 0; j < mRow; j++) {
+                if (mMin >= mArray[j][min]) {
+                    mMin = mArray[j][min];
                     mMinColumnArray[j][min] = 1;
                 }
             }
         }
+
     }
 
     /*
